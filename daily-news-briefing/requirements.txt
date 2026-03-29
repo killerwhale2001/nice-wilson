@@ -1,0 +1,22 @@
+# Web scraping and HTML parsing
+requests>=2.31.0
+beautifulsoup4>=4.12.0
+lxml>=4.9.0
+
+# Configuration
+PyYAML>=6.0
+
+# Scheduling
+schedule>=1.2.0
+
+# Timezone support
+pytz>=2023.3
+
+# AI Analysis
+openai>=1.12.0
+
+# Email delivery (Markdown to HTML)
+markdown>=3.5.0
+
+# Optional: better HTML parsing fallback
+html5lib>=1.1
