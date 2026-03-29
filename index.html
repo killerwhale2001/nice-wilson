@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Landing Page</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+
+    <!-- Navigation bar at the top -->
+    <nav>
+      <div class="logo">MyBrand</div>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Hero section — the big intro area -->
+    <section class="hero">
+      <h1>Welcome to My Page</h1>
+      <p>A simple landing page built with HTML, CSS, and JavaScript.</p>
+      <button id="cta-button">Get Started</button>
+    </section>
+
+    <!-- About section -->
+    <section id="about" class="section">
+      <h2>About</h2>
+      <p>
+        This is a beginner-friendly landing page. Each part is kept simple so
+        it's easy to read and modify.
+      </p>
+    </section>
+
+    <!-- Features section with three cards -->
+    <section id="features" class="section features">
+      <h2>Features</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Easy to Read</h3>
+          <p>Clean, commented code so you always know what's happening.</p>
+        </div>
+        <div class="card">
+          <h3>Fully Responsive</h3>
+          <p>Looks good on phones, tablets, and desktops.</p>
+        </div>
+        <div class="card">
+          <h3>Easy to Customize</h3>
+          <p>Change colors, text, and layout without any build tools.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact section -->
+    <section id="contact" class="section">
+      <h2>Contact</h2>
+      <form id="contact-form">
+        <input type="text" id="name" placeholder="Your name" required />
+        <input type="email" id="email" placeholder="Your email" required />
+        <button type="submit">Send</button>
+      </form>
+      <p id="form-message"></p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>Made with HTML, CSS &amp; JavaScript &mdash; 2026</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
