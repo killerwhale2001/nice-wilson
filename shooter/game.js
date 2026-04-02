@@ -135,7 +135,7 @@ class Game {
     this.waveSpawnQueue = waveData.enemies.flatMap(({ type, count }) =>
       Array(count).fill(type)
     );
-    this.waveSpawnTimer = 0;
+    this.waveSpawnTimer = waveData.spawnInterval;
   }
 
   spawnEnemy(type, speedMult) {
@@ -191,7 +191,8 @@ class Game {
     this.player.update(this.keys, this.mouse.x, this.mouse.y, this.canvas);
 
     if (this.mouse.clicking) {
-      const newBullets = this.player.shoot(this.mouse.x, this.mouse.y, this.enemies);
+      const targets = this.boss ? [this.boss, ...this.enemies] : this.enemies;
+      const newBullets = this.player.shoot(this.mouse.x, this.mouse.y, targets);
       this.playerBullets.push(...newBullets);
     }
 
@@ -308,6 +309,7 @@ class Game {
           if (player.shields <= 0) {
             this.saveHighScore();
             this.state = STATES.GAME_OVER;
+            return; // stop processing collisions this frame
           }
         }
       }
@@ -322,6 +324,7 @@ class Game {
           if (player.shields <= 0) {
             this.saveHighScore();
             this.state = STATES.GAME_OVER;
+            return; // stop processing collisions this frame
           }
         }
       }

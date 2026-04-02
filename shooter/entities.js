@@ -4,6 +4,7 @@ export class Star {
   constructor(canvasW, canvasH, speed, layer) {
     this.speed = speed;
     this.layer = layer;
+    this.canvasW = canvasW;
     this.reset(canvasW, canvasH, true);
   }
 
@@ -15,7 +16,7 @@ export class Star {
 
   update(canvasH) {
     this.y += this.speed;
-    if (this.y > canvasH + 2) this.reset(99999, canvasH);
+    if (this.y > canvasH + 2) this.reset(this.canvasW, canvasH);
   }
 
   draw(ctx, color) {
