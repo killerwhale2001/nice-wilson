@@ -94,7 +94,8 @@ class Game {
       if (code === 'Enter' || code === 'Space') this.activateMenu();
     }
     if (code === 'Escape') {
-      if (this.state === STATES.HOW_TO_PLAY || this.state === STATES.HIGH_SCORES) {
+      if (this.state === STATES.HOW_TO_PLAY || this.state === STATES.HIGH_SCORES ||
+          this.state === STATES.PLAYING || this.state === STATES.BOSS_FIGHT) {
         this.state = STATES.MENU;
       }
     }
