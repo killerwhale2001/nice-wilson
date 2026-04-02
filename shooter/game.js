@@ -1,6 +1,6 @@
 import { drawMenu, drawHUD, drawBossHPBar, drawLevelComplete,
          drawGameOver, drawVictory, drawHowToPlay, drawHighScores } from './ui.js';
-import { Player, Drifter, Tracker, Shooter, Splitter, PowerUp, Star } from './entities.js';
+import { Player, Drifter, Tracker, Shooter, Splitter, PowerUp, Star, Enemy } from './entities.js';
 import { LEVELS } from './levels.js';
 
 export const COLORS = {
@@ -212,7 +212,12 @@ class Game {
     // Boss
     if (this.boss) {
       const shots = this.boss.update(this.player, this.canvas, this.frameCount);
-      if (shots) this.enemyBullets.push(...shots);
+      if (shots) {
+        for (const item of shots) {
+          if (item instanceof Enemy) this.enemies.push(item);
+          else this.enemyBullets.push(item);
+        }
+      }
       if (this.boss.hp <= 0) {
         this.score += this.boss.scoreValue;
         this.boss = null;
