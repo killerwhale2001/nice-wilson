@@ -204,11 +204,14 @@ class Game {
     this.playerBullets = this.playerBullets.filter(b => { b.update(this.enemies); return inBounds(b); });
     this.enemyBullets  = this.enemyBullets.filter(b => { b.update([]); return inBounds(b); });
 
-    // Enemies
-    for (const enemy of this.enemies) {
+    // Enemies — update and cull off-screen enemies
+    const enemyPad = 80;
+    this.enemies = this.enemies.filter(enemy => {
       const shots = enemy.update(this.player, this.canvas);
       if (shots) this.enemyBullets.push(...shots);
-    }
+      return enemy.x > -enemyPad && enemy.x < this.canvas.width + enemyPad &&
+             enemy.y > -enemyPad && enemy.y < this.canvas.height + enemyPad;
+    });
 
     // Boss
     if (this.boss) {
